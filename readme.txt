@@ -2,7 +2,7 @@
 Tags: edd, easy digital downloads, digital downloads, ecommerce
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ Very simple plugin to remove the prices from product purchase buttons on Easy Di
 You haven't asked any!
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix spacing
 
 = 1.0.1 =
 * Rewrite to class-based format
