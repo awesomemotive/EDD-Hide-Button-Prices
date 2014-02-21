@@ -28,9 +28,9 @@ echo ".........................................."
 echo
 
 # Check version in readme.txt is the same as plugin file
-NEWVERSION1=`grep "^Stable tag" $GITPATH/readme.txt | awk -F' ' '{print $3}' | sed 's/[[:space:]]//g'`
+NEWVERSION1=`/bin/grep "^Stable tag" $GITPATH/readme.txt | awk -F' ' '{print $3}' | sed 's/[[:space:]]//g'`
 echo "readme version: $NEWVERSION1"
-NEWVERSION2=`grep " * Version" $GITPATH/$MAINFILE | awk -F':' '{print $2}' | sed 's/[[:space:]]//g'`
+NEWVERSION2=`/bin/grep " * Version" $GITPATH/$MAINFILE | awk -F':' '{print $3}' | sed 's/[[:space:]]//g'`
 echo "$MAINFILE version: $NEWVERSION2"
 
 if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exiting...."; exit 1; fi
@@ -65,7 +65,8 @@ README.md
 echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
 # Add all new files that are not set to be ignored
-svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2}' | xargs svn add
+NEWFILES=`svn status | /bin/grep -v "^.[ \t]*\..*" | /bin/grep "^?" | wc -l`
+if [ "$NEWFILES" != "0" ]; then svn status | /bin/grep -v "^.[ \t]*\..*" | /bin/grep "^?" | awk '{print $2}' | xargs svn add; fi
 svn commit --username=$SVNUSER -m "$COMMITMSG"
 
 # echo "Creating new SVN tag & committing it"
