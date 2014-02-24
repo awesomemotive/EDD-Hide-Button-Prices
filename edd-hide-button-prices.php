@@ -3,7 +3,7 @@
  * Plugin Name:     Easy Digital Downloads - Hide Button Prices
  * Plugin URI:      http://wordpress.org/plugins/easy-digital-downloads-hide-button-prices/
  * Description:     Removes prices from purchase buttons on Easy Digital Downloads
- * Version:         1.0.2
+ * Version:         1.0.3
  * Author:          Daniel J Griffiths
  * Author URI:      http://section214.com
  * Text Domain:     edd-hide-button-prices
